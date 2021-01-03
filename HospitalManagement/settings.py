@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import django_heroku
+from dj_database_url
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -51,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'HospitalManagement.urls'
@@ -125,3 +129,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
 STATIC_DIR,
 ]
+
+
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+django.heroku.settings(locals())
