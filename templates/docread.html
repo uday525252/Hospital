@@ -1,0 +1,79 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "style.css"%}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <input type="search" name="name" value="" placeholder="search here....">
+            </div>
+            <div class="col-auto">
+              <button type="search" name="button" class="btn btn-success">Search</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+    <div class="container" align="center">
+      <h1>Doctor Details</h1><br><br>
+      <table border="2px">
+        <tbody>
+          <thead>
+            <th><h2>DOCTOR NAME</h2></th>
+            <th><h2>MOBILE NUMBER</h2></th>
+            <th><h2>SHIFT</h2></th>
+            <th><h2>SPECIALIZATION</h2></th>
+            <th><h2>EXPERIENCE</h2></th>
+          </thead>
+
+          {% for i in page_obj %}
+          <tr>
+            <td><h3>{{i.doctor_name}}</h3></td>
+            <td><h3>{{i.mobile_no}}</h3></td>
+            <td><h3>{{i.shift}}</h3></td>
+            <td><h3>{{i.specialization}}</h3></td>
+            <td><h3>{{i.experience}}</h3></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+      </div>
+
+        <div id="pagee">
+            {% if page_obj.has_previous %}
+            <a href="?page={{page_obj.previous_page_number}}">Previous</a>
+            {% endif %}
+
+            {{page_obj.number}}
+
+          {% if page_obj.has_next %}
+          <a href="?page={{page_obj.next_page_number}}">Next</a>
+          {% endif %}
+        </div>
+
+
+
+  </body>
+</html>

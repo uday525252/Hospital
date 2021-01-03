@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patient Details Form:</h1>
+      <table border="2px">
+        <thead>
+          <th><h1>PATIENT NAME</h1></th>
+          <th><h1>AGE</h1></th>
+          <th><h1>MOBILE NUMBER</h1></th>
+          <th><h1>DISEASE</h1></th>
+          <th><h1>BLOOD GROUP</h1></th>
+          <th><h1>ADDRESS</h1></th>
+        </thead>
+        {% for i in pat_list %}
+        <tr>
+          <td><h2>{{i.patient_name}}</h2></td>
+          <td><h2>{{i.age}}</h2></td>
+          <td><h2>{{i.mobile_no}}</h2></td>
+          <td><h2>{{i.disease}}</h2></td>
+          <td><h2>{{i.blood_group}}</h2></td>
+          <td><h2>{{i.address}}</h2></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
